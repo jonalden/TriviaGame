@@ -15,20 +15,51 @@ let correctAnswers = 0;
 let wrongAnswers = 0;
 let unanswered = 0;
 
-const questions = [
-    {
-        question: "The moon is the _____-largest sattelite in the solar system",
-        answers: {
-            1: "First",
-            2: "Third",
-            3: "Ninth",
-            4: "Fifth"
-        },
-        correctAnswer: "4"
+
+
+const firstQuestion =
+{
+    question: "The moon is the _____-largest sattelite in the solar system",
+    answers: {
+        1: "First",
+        2: "Third",
+        3: "Ninth",
+        4: "Fifth"
     },
+    correctAnswer: "4"
+};
+
+const secondQuestion =
+{
+    question: "The Moon's gravitational influence causes what?",
+    answers: {
+        1: "Tides",
+        2: "Arthritus",
+        3: "Bad Web Development",
+        4: "Measles"
+    },
+    correctAnswer: "1"
+};
+
+const thirdQuestion =
+{
+    question: "Which Apollo mission was the first to land on the moon?",
+    answers: {
+        1: "8",
+        2: "11",
+        3: "9",
+        4: "7"
+    },
+    correctAnswer: "2"
+},
+
+    
+
+    
 
 
-]
+
+
 
 //functions
 
