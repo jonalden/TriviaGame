@@ -100,10 +100,10 @@ startButton.addEventListener("click", function () {
 
 });
 
-
+// game over function to show reults
 function gameOver () {
   counterElement.style.display = "none";
-  document.getElementById('quiz-view').style.display = "none";
+  document.getElementById("quiz-view").style.display = "none";
   const htmlString = "RESULTS...." +
     "<br>Correct:" + scoreKeeper.correct +
     "<br>Incorrect:" + scoreKeeper.incorrect +

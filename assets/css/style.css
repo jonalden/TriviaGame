@@ -1,48 +1,86 @@
 body {
-    background-image:url("https://images5.alphacoders.com/594/thumb-1920-594305.jpg");
-    margin-bottom: 10%;
-    color:#FFFFFF;
+    background: url("https://images5.alphacoders.com/594/thumb-1920-594305.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: #FFFFFF;
+    font-family: monospace;
+    font-size: 20px;
 }
 
 ul {
-  list-style-type: none;
-  padding:0;
+    list-style-type: none;
+    padding: 0;
 }
 
 h1 {
     text-align: center;
     color: white;
     margin-bottom: 40px;
+    margin-top: 50px;
+    font-size: 40px;
 }
 
-p {
+h2 {
     text-align: center;
     color: white;
-    margin-top: 3%;
-    font-size: 24px;
-}
-
-.container {
-    border: 2px solid white;
-    width: 60%;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    height: 950px;
-    border-radius: 15px;
-    background-color: rgb( 220, 220, 220, 0.3)
+    margin-bottom: 40px;
+    margin-top: 50px;
+    font-size: 70px;
 }
 
 #quiz-view {
-  display:none;
+    display: none;
 }
 
-#submit-button {
-    margin-top: 10%;
+#submitButton {
+    background: rgba(255, 255, 255, 0.6);
+    ;
+    margin-left: 42%;
+    margin-top: 20px;
+    margin-bottom: 200px;
+    width: 200px;
+    color: black;
+    font-size: 30px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 15px;
+    font-family: monospace
 }
 
 .radioInput {
     text-align: center;
     margin-left: 10%;
     color: white;
-
 }
+
+#questionForm {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#startButton {
+    margin-left: 40.5%;
+    margin-top: 15%;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid grey;
+    width: 300px;
+    height: 100px;
+    border-radius: 10px;
+    font-size: 40px;
+    font-family: monospace;
+}
+
+#timer {
+    background: rgba(255, 255, 255, 0.6);
+    margin: 0 auto;
+    margin-bottom: 40px;
+    width: 600px;
+    height: 50px;
+    color: black;
+    font-size: 30px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+}
+
+#result {}
