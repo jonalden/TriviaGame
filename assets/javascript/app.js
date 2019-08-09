@@ -1,54 +1,54 @@
 const allQuestions = [{
-    question: "Before Mt. Everest was discovered, whaich mountain was considered to be the highest mountain in the world?",
-    choices: ["Mt. Kilimanjaro", "Kanchenjunga", "Mount Everest", "Mountain"],
+    question: "The moon is a/an _________ of the Earth",
+    choices: ["Crazy Aunt", "Sattelite", "Essential oil", "Annoying Neghbor"],
     correctAnswer: 1
 },
 
 {
-    question: "Does England have a 4th of July?",
-    choices: ["Yes", "No", "I don't know", "maybe"],
+    question: "The moon's gravitational pull affects what?",
+    choices: ["The ocean's tides", "Web development", "Your mood", "The winner of the Superbowl"],
     correctAnswer: 0
 },
 
 {
-    question: "What is Rupert the bear's middle name?",
-    choices: ["Bear", "He doesn't have one!", "The", "Rupert"],
+    question: "Which Apollo mission landed on the moon?",
+    choices: ["Apollo Creed", "Apollo Apollo", "Apollo 11", "Apollo 2,976"],
     correctAnswer: 2
 },
 
 {
-    question: " What can you never eat for breakfast? ",
-    choices: ["Dinner", "Something sugary", "Lunch", "Supper"],
+    question: "2 full moons in the same month is called what",
+    choices: ["Blue Moon", "Something sugary", "Lunch", "Supper"],
     correctAnswer: 0
 },
 
 {
-    question: "If there are three apples and you took two away, how many do you have?",
-    choices: ["One", "Two", "None", "Three"],
+    question: "What is the average distance of the moon from the Earth?",
+    choices: ["7 inches", "238,900 miles", "A Buzz Lightyear", "Three"],
     correctAnswer: 1
 },
 
 {
-    question: "Spell 'Silk' out loud, 3 times in a row. What do cows drink?",
-    choices: ["Milk", "Water", "Juice", "Cows can't drink"],
+    question: "What is the name of the landing site of the Apollo moon landing?",
+    choices: ["Milk", "Sea of Tranquility", "Area 51", "Valhalla"],
     correctAnswer: 1
 },
 
 {
-    question: "Which is heavier, 100 pounds of rocks or 100 pounds of gold? ",
-    choices: ["100 pounds of rocks", "100 pounds of rocks", "They weigh the same", "seven"],
+    question: "A person weighs ___ of their body weight when they are on the moon? ",
+    choices: ["200%", "A really big number", "1/6", "seven"],
     correctAnswer: 2
 },
 
 {
-    question: "Can you spell 80 in two letters?",
-    choices: ["AI-TY", "It's not possible", "EIGH-TY", "A-T"],
+    question: "Elon Musk thinks that we could get back on the moon within how long?",
+    choices: ["A couple hours", "It's not possible", "You know, whenever", "2 years"],
     correctAnswer: 3
 },
 
 {
-    question: "What question must always be answered ''Yes''?",
-    choices: ["What does Y-E-S spell?", "Will everyone die someday?", "Does everyone have a biological mother?", "Are you a human?"],
+    question: "HOw many golf balls are sitting on the moon?",
+    choices: ["3", "The moon is one big golf ball", "1,000,000", "Zero"],
     correctAnswer: 0
 }];
 
@@ -104,11 +104,14 @@ startButton.addEventListener("click", function () {
 function gameOver () {
   counterElement.style.display = "none";
   document.getElementById("quiz-view").style.display = "none";
-  const htmlString = "RESULTS...." +
+  const htmlString = document.createElement("div");
+  htmlString.innerHTML = 
+  "RESULTS....<br>" +
     "<br>Correct:" + scoreKeeper.correct +
     "<br>Incorrect:" + scoreKeeper.incorrect +
-    "<br>Unaswered:" + scoreKeeper.blank
-  document.getElementById('result').innerHTML = htmlString;
+    "<br>Unaswered:" + scoreKeeper.blank;
+  htmlString.classList.add("result");
+  document.getElementById('result').append(htmlString);
 }
 
 

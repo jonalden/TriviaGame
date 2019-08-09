@@ -59,7 +59,7 @@ h2 {
 
 #startButton {
     margin-left: 40.5%;
-    margin-top: 15%;
+    margin-top: 150px;
     background: rgba(255, 255, 255, 0.7);
     border: 1px solid grey;
     width: 300px;
@@ -83,4 +83,15 @@ h2 {
     text-align: center;
 }
 
-#result {}
+.result {
+    width: 300px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid grey;
+    border-radius: 10px;
+    font-size: 40px;
+    font-family: monospace;
+    margin-top: 150px;
+    margin-left: 39%;
+    padding: 20px;
+    color: black;
+}
