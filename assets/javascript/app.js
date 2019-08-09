@@ -67,7 +67,7 @@ function millisToMinutesAndSeconds (millis) {
 }
 
 // Timer
-var counterElement = document.getElementById('timer');
+var counterElement = document.getElementById("timer");
 let countDown = function () {
 
   scoreKeeper.timeLeft -= 1000;
@@ -76,11 +76,11 @@ let countDown = function () {
   if (scoreKeeper.timeLeft > 0) {
 
     // update element with current time left
-    counterElement.innerHTML = 'Time Left: ' + millisToMinutesAndSeconds(scoreKeeper.timeLeft);
+    counterElement.innerHTML = "Time Left: " + millisToMinutesAndSeconds(scoreKeeper.timeLeft);
 
   } else {
 
-    counterElement.innerHTML = '0';
+    counterElement.innerHTML = "0";
     gameOver();
   }
 }
@@ -88,26 +88,26 @@ let countDown = function () {
 
 
 // starts quiz
-let startButton = document.getElementById('startButton');
-startButton.addEventListener('click', function () {
+let startButton = document.getElementById("startButton");
+startButton.addEventListener("click", function () {
 
   setInterval(countDown, 1000);
 
-  startButton.style.display = 'none';
+  startButton.style.display = "none";
 
   // show quiz
-  document.getElementById('quiz-view').style.display = 'block';
+  document.getElementById("quiz-view").style.display = "block";
 
 });
 
 
 function gameOver () {
-  counterElement.style.display = 'none';
-  document.getElementById('quiz-view').style.display = 'none';
-  const htmlString = 'RESULTS....' +
-    '<br>Correct:' + scoreKeeper.correct +
-    '<br>Incorrect:' + scoreKeeper.incorrect +
-    '<br>Unaswered:' + scoreKeeper.blank
+  counterElement.style.display = "none";
+  document.getElementById('quiz-view').style.display = "none";
+  const htmlString = "RESULTS...." +
+    "<br>Correct:" + scoreKeeper.correct +
+    "<br>Incorrect:" + scoreKeeper.incorrect +
+    "<br>Unaswered:" + scoreKeeper.blank
   document.getElementById('result').innerHTML = htmlString;
 }
 
@@ -118,7 +118,7 @@ for (let i = 0; i < allQuestions.length; i++) {
   let objQuestion = allQuestions[i];
   let questionForm = document.getElementById("questionForm");
   let orderNumber = i + 1;
-  questionForm.innerHTML += '<h4>' + orderNumber + '. ' + objQuestion.question + '</h4>' +
+  questionForm.innerHTML += "<h4>" + orderNumber + ". " + objQuestion.question + "</h4>" +
       '<ul>' +
         '<fieldset id="group' + i + '">' +
           '<li><input class="test-choices" type="radio" name="group' + i + '" value="0">' + objQuestion.choices[0] + '</li>' +
@@ -131,8 +131,8 @@ for (let i = 0; i < allQuestions.length; i++) {
 
 
 
-let submitButton = document.getElementById('submitButton');
-submitButton.addEventListener('click', function(){
+let submitButton = document.getElementById("submitButton");
+submitButton.addEventListener("click", function(){
   getScore();
   gameOver();
 });
@@ -140,13 +140,13 @@ submitButton.addEventListener('click', function(){
 
 function getScore () {
 
-  let ulElements = document.getElementsByTagName('ul');
+  let ulElements = document.getElementsByTagName("ul");
 
   // go through ul elements
   for (let i = 0; i < ulElements.length; i++) {
 
     let ulElement = ulElements[i];
-    let inputElements = ulElement.getElementsByClassName('test-choices');
+    let inputElements = ulElement.getElementsByClassName("test-choices");
 
     let checked = false;
     let answeredCorrectly = false;
