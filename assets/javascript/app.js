@@ -1,10 +1,4 @@
-
-
-// when start-button is pressed, hide button and display trivia questions
-// create a timer that starts when the user hits the start-game button
-// Make an array of questions, choices, and correct answers
-
-let allQuestions = [{
+const allQuestions = [{
     question: "Before Mt. Everest was discovered, whaich mountain was considered to be the highest mountain in the world?",
     choices: ["Mt. Kilimanjaro", "Kanchenjunga", "Mount Everest", "Mountain"],
     correctAnswer: 1
@@ -56,46 +50,133 @@ let allQuestions = [{
     question: "What question must always be answered ''Yes''?",
     choices: ["What does Y-E-S spell?", "Will everyone die someday?", "Does everyone have a biological mother?", "Are you a human?"],
     correctAnswer: 0
-},
+}];
 
-];
+let timer;
+let scoreKeeper = {
+  correct:0,
+  incorrect:0,
+  blank:0,
+  timeLeft:2*60*1000
+};
 
-//global variables
-let currentQuestion = 0;
-let correctAnswers = 0;
-let unanswered = 0;
-
-
-console.log(questionContainer);
-
-let components = "";
-
-function buttonClick() {
-    console.log(this)
+function millisToMinutesAndSeconds (millis) {
+  var minutes = Math.floor(millis / 60000);
+  var seconds = ((millis % 60000) / 1000).toFixed(0);
+  return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 }
+
+// Timer
+var counterElement = document.getElementById('timer');
+let countDown = function () {
+
+  scoreKeeper.timeLeft -= 1000;
+
+  // check if timer runs out
+  if (scoreKeeper.timeLeft > 0) {
+
+    // update element with current time left
+    counterElement.innerHTML = 'Time Left: ' + millisToMinutesAndSeconds(scoreKeeper.timeLeft);
+
+  } else {
+
+    counterElement.innerHTML = '0';
+    gameOver();
+  }
+}
+
+
+
+// starts quiz
+let startButton = document.getElementById('startButton');
+startButton.addEventListener('click', function () {
+
+  setInterval(countDown, 1000);
+
+  startButton.style.display = 'none';
+
+  // show quiz
+  document.getElementById('quiz-view').style.display = 'block';
+
+});
+
+
+function gameOver () {
+  counterElement.style.display = 'none';
+  document.getElementById('quiz-view').style.display = 'none';
+  const htmlString = 'RESULTS....' +
+    '<br>Correct:' + scoreKeeper.correct +
+    '<br>Incorrect:' + scoreKeeper.incorrect +
+    '<br>Unaswered:' + scoreKeeper.blank
+  document.getElementById('result').innerHTML = htmlString;
+}
+
+
 // display the questions and choices
 for (let i = 0; i < allQuestions.length; i++) {
 
-    let objQuestion = allQuestions[i];
-    let questionContainer = document.getElementById("questionContainer");
-
-    questionContainer.innerHTML += '<h4>' + objQuestion.question + '</h4>' +
-        '<ul>' +
-        '<li><input type="radio" name="zero" value="0">' + objQuestion.choices[0] + '</li>' +
-        '<li><input type="radio" name="zero" value="1">' + objQuestion.choices[1] + '</li>' +
-        '<li><input type="radio" name="zero" value="2">' + objQuestion.choices[2] + '</li>' +
-        '<li><input type="radio" name="zero" value="3">' + objQuestion.choices[3] + '</li>' +
-        '</ul>';
-
-    console.log(objQuestion);
+  let objQuestion = allQuestions[i];
+  let questionForm = document.getElementById("questionForm");
+  let orderNumber = i + 1;
+  questionForm.innerHTML += '<h4>' + orderNumber + '. ' + objQuestion.question + '</h4>' +
+      '<ul>' +
+        '<fieldset id="group' + i + '">' +
+          '<li><input class="test-choices" type="radio" name="group' + i + '" value="0">' + objQuestion.choices[0] + '</li>' +
+          '<li><input class="test-choices" type="radio" name="group' + i + '" value="1">' + objQuestion.choices[1] + '</li>' +
+          '<li><input class="test-choices" type="radio" name="group' + i + '" value="2">' + objQuestion.choices[2] + '</li>' +
+          '<li><input class="test-choices" type="radio" name="group' + i + '" value="3">' + objQuestion.choices[3] + '</li>' +
+        '</fieldset>' +
+      '</ul>';
 }
 
 
 
-// give the user a way to select the answer they think is correct
-// return the users guess to the correct win/loss counter
-// When timer runs out hide all questions and display user stats
-// create a finsh-game button that hides all questions and displays user stats
+let submitButton = document.getElementById('submitButton');
+submitButton.addEventListener('click', function(){
+  getScore();
+  gameOver();
+});
+
+
+function getScore () {
+
+  let ulElements = document.getElementsByTagName('ul');
+
+  // go through ul elements
+  for (let i = 0; i < ulElements.length; i++) {
+
+    let ulElement = ulElements[i];
+    let inputElements = ulElement.getElementsByClassName('test-choices');
+
+    let checked = false;
+    let answeredCorrectly = false;
+    for (let j = 0; j < inputElements.length; j++) {
+
+      if (inputElements[j].checked) {
+
+        checked = true;
+
+        if (j == allQuestions[i].correctAnswer) {
+          answeredCorrectly = true;
+        }
+      }
+    }
+
+    if (answeredCorrectly) {
+      scoreKeeper.correct += 1;
+    } else {
+
+      if (checked == true) {
+        scoreKeeper.incorrect += 1;
+      } else {
+        scoreKeeper.blank += 1;
+      }
+    }
+  }
+}
+
+
+
 
 
 

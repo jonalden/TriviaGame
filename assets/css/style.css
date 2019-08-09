@@ -1,6 +1,12 @@
 body {
     background-image:url("https://images5.alphacoders.com/594/thumb-1920-594305.jpg");
     margin-bottom: 10%;
+    color:#FFFFFF;
+}
+
+ul {
+  list-style-type: none;
+  padding:0;
 }
 
 h1 {
@@ -26,15 +32,9 @@ p {
     background-color: rgb( 220, 220, 220, 0.3)
 }
 
-/* button {
-    margin-top: 30px;
-    margin-left: 40%;
-    background: rgb( 220, 220, 220, 0.7);
-    width: 200px;
-    height: 60px;
-    border-radius: 8px;
-    font-size: 30px;
-} */
+#quiz-view {
+  display:none;
+}
 
 #submit-button {
     margin-top: 10%;
@@ -46,4 +46,3 @@ p {
     color: white;
 
 }
-
