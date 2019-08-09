@@ -1,29 +1,49 @@
 body {
     background-image:url("https://images5.alphacoders.com/594/thumb-1920-594305.jpg");
+    margin-bottom: 10%;
 }
 
 h1 {
     text-align: center;
     color: white;
-    margin-top: 40px;
     margin-bottom: 40px;
 }
 
+p {
+    text-align: center;
+    color: white;
+    margin-top: 3%;
+    font-size: 24px;
+}
+
 .container {
-    border: 1px solid white;
+    border: 2px solid white;
     width: 60%;
     margin: 0 auto;
-    height: 40%;
+    margin-bottom: 20px;
+    height: 950px;
     border-radius: 15px;
     background-color: rgb( 220, 220, 220, 0.3)
 }
 
-button {
-    margin-top: 145px;
+/* button {
+    margin-top: 30px;
     margin-left: 40%;
     background: rgb( 220, 220, 220, 0.7);
     width: 200px;
     height: 60px;
     border-radius: 8px;
     font-size: 30px;
+} */
+
+#submit-button {
+    margin-top: 10%;
 }
+
+.radioInput {
+    text-align: center;
+    margin-left: 10%;
+    color: white;
+
+}
+
